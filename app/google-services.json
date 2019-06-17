@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "172865075331",
+    "firebase_url": "https://trainreservation-bead7.firebaseio.com",
+    "project_id": "trainreservation-bead7",
+    "storage_bucket": "trainreservation-bead7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172865075331:android:c46bed9bff9e4831",
+        "android_client_info": {
+          "package_name": "com.example.trainreservation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172865075331-0q8b5i1nlfp1u81a9i0dv0h97hcnmhsu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.trainreservation",
+            "certificate_hash": "394b984073a7d76af2d1c8963e0a0107c5485f76"
+          }
+        },
+        {
+          "client_id": "172865075331-0r9hn4qlnt84aonhhgp740fsoavi6afq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBy-NaW1O_ZMwpKjojSm7gI4WKuiab_X_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172865075331-0r9hn4qlnt84aonhhgp740fsoavi6afq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
