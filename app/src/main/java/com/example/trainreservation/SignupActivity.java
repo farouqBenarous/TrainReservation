@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -39,9 +40,10 @@ public class SignupActivity extends AppCompatActivity {
     ProgressBar progressBar;
     int spin,day,month,year;
     private FirebaseAuth mAuth;
-    FirebaseUser currentUser ;
+    irebaseUser currentUser ;
     FirebaseDatabase database ;
     DatabaseReference myRef ;
+    FirebaseApp firebaseApp;
     ModelUser modelUser ;
 
 
@@ -50,9 +52,13 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+
+
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Users") ;
+
 
         Email = (EditText) findViewById(R.id.Email);
         FullName = (EditText) findViewById(R.id.FullName);
@@ -82,6 +88,7 @@ public class SignupActivity extends AppCompatActivity {
 
             }
         });
+
         datasetday  = new LinkedList<>(Arrays.asList("1"));
         for (int i =1 ; i <= 31 ;i++) { datasetday.add(String.valueOf(i));}
         dayspin.attachDataSource(datasetday);
@@ -96,6 +103,7 @@ public class SignupActivity extends AppCompatActivity {
 
             }
         });
+
         datasetmonth = new LinkedList<>(Arrays.asList("1"));
         for (int i =1 ; i <= 11 ;i++) { datasetmonth.add(String.valueOf(i));}
         monthspin.attachDataSource(datasetmonth);
@@ -116,8 +124,11 @@ public class SignupActivity extends AppCompatActivity {
         yearspin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                year = position;
+                year = position+1960;
             }
+
+
+
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -127,7 +138,10 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
+
     public void  Signup(View view) {
+
+
         currentUser = mAuth.getCurrentUser();
         TextEmail = String.valueOf(Email.getText());
         TextFullName = String.valueOf(FullName.getText());
@@ -176,11 +190,11 @@ public class SignupActivity extends AppCompatActivity {
             return;
         }
 
-        if (PhoneNumberUtils.isGlobalPhoneNumber(TextPhonenumber)) {
+       /* if (PhoneNumberUtils.isGlobalPhoneNumber(TextPhonenumber)) {
             Phonenumber.setError("Phone number is not Valid ");
             progressBar.setVisibility(View.INVISIBLE);
             return;
-        }
+        } */
 
 
         if (TextPassword.isEmpty() || TextPassword == null) {
