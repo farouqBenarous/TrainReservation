@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactUsActivity"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    >
+
+
+    <ViewFlipper
+        android:id="@+id/viewSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:autoStart="true"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            >
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/Image3"
+                android:layout_width="match_parent"
+                android:layout_height="203dp"
+                android:src="@drawable/younes"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="150dp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"/>
+
+
+            <TextView
+                android:id="@+id/Person3Email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lamriyounes@gmail.com"
+                android:textStyle="bold|italic"
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                />
+            <TextView
+                android:id="@+id/Person3Phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+213 555 67 33 65"
+                android:textStyle="bold|italic"
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal"
+                />
+
+
+
+        </LinearLayout>
+
+
+    </ViewFlipper>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        >
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginRight="50dp"
+            android:onClick="Privous"
+            android:rotation="180"
+            android:src="@drawable/ic_next"
+            android:text="Privous"
+            android:background="@color/colorPrimary"
+            />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginLeft="50dp"
+            android:onClick="Next"
+            android:src="@drawable/ic_next"
+            android:text="next"
+            android:background="@color/colorPrimary"
+
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

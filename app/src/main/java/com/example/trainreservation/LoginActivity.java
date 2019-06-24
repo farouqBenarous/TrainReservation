@@ -27,9 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText email , password;
     String EmailText , PasswordText,RightPassword;
-    CheckBox checkBox;
     ProgressBar progressBar;
-    boolean checked ;
     private FirebaseAuth mAuth;
     FirebaseUser currentUser ;
     FirebaseDatabase database ;
@@ -42,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
-        checkBox = (CheckBox) findViewById(R.id.checkbox);
         progressBar = (ProgressBar)  findViewById(R.id.progressbar) ;
 
 
@@ -58,7 +55,6 @@ public class LoginActivity extends AppCompatActivity {
     public void Login (View view)   {
         EmailText = String.valueOf(email.getText());
         PasswordText = String.valueOf(password.getText());
-        checked = checkBox.isChecked();
 
         progressBar.setVisibility(View.VISIBLE);
 
@@ -88,8 +84,14 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
 
-                            Intent intent = new Intent(getApplicationContext() , MainActivity.class);
-                            startActivity(intent);
+                            if (EmailText.equals("admin@admin.com") && PasswordText.equals("adminadmin")) {
+                                Intent intent = new Intent(getApplicationContext() , AdminActivity.class);
+                                startActivity(intent);
+                            }
+                            else {
+                                Intent intent = new Intent(getApplicationContext() , MainActivity.class);
+                                startActivity(intent);
+                            }
 
                         } else {
                             Toast.makeText(getApplicationContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
@@ -105,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-        public void gohome(View view) {
+    public void gohome(View view) {
 
         Intent intent = new Intent(getApplicationContext() , MainActivity.class);
         startActivity(intent);

@@ -40,7 +40,7 @@ public class SignupActivity extends AppCompatActivity {
     ProgressBar progressBar;
     int spin,day,month,year;
     private FirebaseAuth mAuth;
-    irebaseUser currentUser ;
+    FirebaseUser currentUser ;
     FirebaseDatabase database ;
     DatabaseReference myRef ;
     FirebaseApp firebaseApp;

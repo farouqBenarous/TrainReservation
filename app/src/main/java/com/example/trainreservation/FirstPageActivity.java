@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ViewFlipper;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 public class FirstPageActivity extends AppCompatActivity {
@@ -15,6 +17,8 @@ public class FirstPageActivity extends AppCompatActivity {
     ViewFlipper viewFlipper;
     ProgressBar progressBar;
     ImageView imageView1,imageView2,imageView3;
+    FirebaseAuth auth ;
+    FirebaseUser  user;
 
 
     @Override
@@ -28,6 +32,8 @@ public class FirstPageActivity extends AppCompatActivity {
         imageView1 = (ImageView) findViewById(R.id.ImageFeature1) ;
         imageView2 = (ImageView) findViewById(R.id.ImageFeature2) ;
         imageView3 = (ImageView) findViewById(R.id.ImageFeature3) ;
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
 
 
 
@@ -48,6 +54,13 @@ public class FirstPageActivity extends AppCompatActivity {
                 .load("https://firebasestorage.googleapis.com/v0/b/trainreservation-bead7.appspot.com/o/jp-valery-1164847-unsplash.jpg?alt=media&token=0709ad4a-b8a7-468b-8424-0241f08dac54")
                 .into(imageView3);
 
+
+
+    if (user == null) {
+        Intent intent = new Intent (getApplicationContext() ,  MainActivity.class) ;
+        startActivity(intent);
+
+    }
     }
 
 
