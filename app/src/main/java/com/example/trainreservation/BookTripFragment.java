@@ -50,7 +50,7 @@ public class BookTripFragment extends Fragment {
    int TrainPosition , TripPosition ;
    EditText passanger ;
    CircleButton btnplus , btnminus ;
-   String depdate  ;
+   String depdate , arvdate  ;
 
 
     public BookTripFragment() {}
@@ -158,6 +158,7 @@ public class BookTripFragment extends Fragment {
                 DayA = day;
                 YearA = year;
                 MonthA = month+1;
+                arvdate = DayA + "/" + MonthA + "/" + YearA ;
                 btnarrivaldate.setText(DayA + "/" + MonthA + "/" + YearA );
 
             }};
@@ -184,12 +185,27 @@ public class BookTripFragment extends Fragment {
         btnsearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+                String departure =  String.valueOf(depart.getText());
+                String arival = String.valueOf(arrival.getText());
+                String number_of_ppl = String.valueOf(passanger.getText());
+
+                /*
+                *
+                * HERE YOU HAVE TO ADD CONDITION TO CHECK EACH INPUT JUST LIKE I DID IN THE SIGNUP TO AVOID ALL ERRORS LIKE IF THE USER DIDN'T SET THE INPUT ND CLICK SEARCH ...
+                * */
+
                 Intent myIntent = new Intent(getContext(), SearchResultActivity.class);
                 myIntent.putExtra("depdate", depdate );
-                myIntent.putExtra("nbplaces",  passanger.getText() );
+                myIntent.putExtra("arvdate", arvdate );
+                myIntent.putExtra("dep",departure );
+                myIntent.putExtra("arv", arival);
+
+                myIntent.putExtra("nbplaces",  number_of_ppl);
                 myIntent.putExtra("traintype", datasetTraintypes.get(TrainPosition));
-                myIntent.putExtra("dep",depart.getText() );
-                myIntent.putExtra("arv", arrival.getText());
+
                 startActivity(myIntent);
             }
         });

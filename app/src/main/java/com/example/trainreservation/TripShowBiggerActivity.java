@@ -3,6 +3,7 @@ package com.example.trainreservation;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -67,9 +68,10 @@ public class TripShowBiggerActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
-        ref.child("Trips").orderByChild("id").equalTo(id_trip).addValueEventListener(new ValueEventListener() {
+        ref.child("Trips").orderByChild("id").equalTo(id_trip).addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
                 modelTrip = dataSnapshot.getValue(ModelTrip.class);
                 n_b = modelTrip.getNumber_passanger();
                 devarv =modelTrip.getDeparture() + "  --->  "+modelTrip.getArrival() ;
@@ -83,9 +85,16 @@ public class TripShowBiggerActivity extends AppCompatActivity {
                 nbplaces.setText("Number of places : "+modelTrip.getNumber_passanger());
                 traintype.setText("Train trype :"+modelTrip.getTraintype());
                 triptype.setText("Trip type : "+modelTrip.getTriptype());
+
             }
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {}}) ;
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {}
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {}
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {}
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {}});
         ref4.child("tripsid").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -120,8 +129,8 @@ public class TripShowBiggerActivity extends AppCompatActivity {
                 ref1.child("Trips").orderByChild("id").equalTo(id_trip).addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                        ref2.child("Trips").child(dataSnapshot.getKey()).child("nbPlace")
-                                .setValue(Integer.parseInt(n_b)-Integer.parseInt(placereserved)).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        ref2.child("Trips").child(dataSnapshot.getKey()).child("number_passanger")
+                                .setValue(String.valueOf(Integer.parseInt(n_b)-Integer.parseInt(placereserved)) ).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 modelTicket = new ModelTicket(id_ticktet,dep,arv,depdate,arvdate,n_b,"0");

@@ -136,7 +136,7 @@ public class MyTicketsBlankFragment extends Fragment {
 
         public void setnbplaces(String nbplaces) {
             TextView nb = mView.findViewById(R.id.nbplaces);
-            nb.setText("Only "+nbplaces+" Places left");
+            nb.setText("You have Reserved "+nbplaces);
         }
 
         public void settprice(String price) {

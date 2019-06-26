@@ -60,10 +60,10 @@
                 />
 
             <TextView
-                android:id="@+id/traintype"
+                android:id="@+id/price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="traintype"
+                android:text="Price"
                 />
 
 

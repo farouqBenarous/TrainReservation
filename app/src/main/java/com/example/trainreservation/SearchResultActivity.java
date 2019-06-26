@@ -36,7 +36,7 @@ public class SearchResultActivity<modelNotifications> extends AppCompatActivity 
     DatabaseReference reference,reference1,reference2,reference3,reference4;
     FirebaseAuth auth;
     FirebaseUser firebaseUser;
-    String depdate , nbplaces , traintype , dep,arv;
+    String depdate , arvdate , nbplaces , traintype , dep,arv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +44,11 @@ public class SearchResultActivity<modelNotifications> extends AppCompatActivity 
         setContentView(R.layout.activity_search_result);
 
         Intent intent = getIntent();
-        depdate = intent.getStringExtra("depdate");
         nbplaces = intent.getStringExtra("nbplaces");
         traintype = intent.getStringExtra("traintype");
+
+        depdate = intent.getStringExtra("depdate");
+        arvdate = intent.getStringExtra("arvdate");
         dep = intent.getStringExtra("dep");
         arv = intent.getStringExtra("arv");
 
@@ -98,32 +100,37 @@ public class SearchResultActivity<modelNotifications> extends AppCompatActivity 
                         viewHolder.setdate(model.getDeparturedate(), model.getArrivaldate());
                         viewHolder.setnbplaces(model.getNumber_passanger());
                         viewHolder.settraintype(model.getTraintype());
-/*
 
-                        if (!Objects.equals(model.getDeparture(),dep ) ) {
+                        if ( Integer.valueOf(model.getNumber_passanger() ) <= 0 ) {
                             viewHolder.hide();
                         }
 
-                        if (!Objects.equals(model.getArrival(),arv ) ) {
+                        if (!Objects.equals(model.getDeparture().trim(),dep.trim() ) ) {
                             viewHolder.hide();
                         }
 
-                        if (!Objects.equals(model.getDeparturedate(), depdate) ) {
+                        if (!Objects.equals(model.getArrival().trim(),arv.trim() ) ) {
                             viewHolder.hide();
                         }
 
-                        if (!Objects.equals(model.getDeparturedate(), depdate) ) {
+                        if (!Objects.equals(model.getDeparturedate().trim(), depdate.trim()) ) {
                             viewHolder.hide();
                         }
+
+
+                        if (!Objects.equals(model.getArrivaldate().trim(), arvdate.trim()) ) {
+                            viewHolder.hide();
+                        }
+
 
                         if (Integer.valueOf(model.getNumber_passanger()) < Integer.valueOf(nbplaces))  {
                             viewHolder.hide();
                         }
 
-                    if (!Objects.equals(model.getTraintype(), traintype) )  {
-                           viewHolder.hide();
-                       }
-*/
+                        if (!Objects.equals(model.getTraintype().trim(), traintype.trim()) )  {
+                            viewHolder.hide();
+                        }
+
 
                         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
