@@ -16,7 +16,7 @@ public class ModelUser {
     private  String password;
     private  String birthdate;
 
-
+    public  ModelUser() {}
     public ModelUser(String id , String Gender , String fullname , String username , String email , String phoneNumber , Uri imageuri) {
         this.id = id;
         this.fullname = fullname;

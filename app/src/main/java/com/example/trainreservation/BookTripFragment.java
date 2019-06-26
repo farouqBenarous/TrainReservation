@@ -2,6 +2,7 @@ package com.example.trainreservation;
 
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -49,6 +50,7 @@ public class BookTripFragment extends Fragment {
    int TrainPosition , TripPosition ;
    EditText passanger ;
    CircleButton btnplus , btnminus ;
+   String depdate  ;
 
 
     public BookTripFragment() {}
@@ -89,12 +91,8 @@ public class BookTripFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 TripPosition = position;
             }
-
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+            public void onNothingSelected(AdapterView<?> parent) {}});
 
 
 
@@ -133,6 +131,7 @@ public class BookTripFragment extends Fragment {
                 DayD = day;
                 YearD = year;
                 MonthD = month+1;
+                depdate = DayD + "/" + MonthD + "/" + YearD ;
                 btndeparturedate.setText(DayD + "/" + MonthD + "/" + YearD );
                 Toast.makeText(getContext(), DayD + "/" + MonthD + "/" + YearD , Toast.LENGTH_SHORT).show();
             }};
@@ -185,7 +184,13 @@ public class BookTripFragment extends Fragment {
         btnsearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent myIntent = new Intent(getContext(), SearchResultActivity.class);
+                myIntent.putExtra("depdate", depdate );
+                myIntent.putExtra("nbplaces",  passanger.getText() );
+                myIntent.putExtra("traintype", datasetTraintypes.get(TrainPosition));
+                myIntent.putExtra("dep",depart.getText() );
+                myIntent.putExtra("arv", arrival.getText());
+                startActivity(myIntent);
             }
         });
 

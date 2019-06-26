@@ -245,26 +245,7 @@
                 android:orientation="horizontal"
                 android:layout_gravity="center_horizontal"
                 >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Teams : "
-                    android:textStyle="bold|italic"
-                    android:textSize="20dp"
 
-                    />
-
-                <TextView
-                    android:id="@+id/teams"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:text="None"
-                    android:textStyle="bold|italic"
-                    android:textSize="20dp"
-
-
-                    />
 
 
 
@@ -276,26 +257,6 @@
                 android:orientation="horizontal"
                 android:layout_gravity="center_horizontal"
                 >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="My projects  : "
-                    android:textStyle="bold|italic"
-                    android:textSize="20dp"
-
-                    />
-
-                <TextView
-                    android:id="@+id/projects"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:text="None"
-                    android:textStyle="bold|italic"
-                    android:textSize="20dp"
-
-
-                    />
 
 
 

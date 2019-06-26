@@ -1,9 +1,12 @@
 package com.example.trainreservation;
 
 public class ModelTrip {
-    private String departure , arrival , triptype ,  departuredate , arrivaldate ,  number_passanger , traintype ;
+    private String ID, departure , arrival , triptype ,  departuredate , arrivaldate ,  number_passanger , traintype ;
 
-    public  ModelTrip (String departure , String arrival ,String triptype , String departuredate ,String arrivaldate , String number_passanger ,String traintype) {
+    public  ModelTrip () {}
+
+    public  ModelTrip (String ID ,String departure , String arrival ,String triptype , String departuredate ,String arrivaldate , String number_passanger ,String traintype) {
+        this.ID = ID ;
         this.departure = departure ;
         this.arrival = arrival ;
         this.triptype = triptype ;
@@ -68,5 +71,13 @@ public class ModelTrip {
 
     public void setTraintype(String traintype) {
         this.traintype = traintype;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 }

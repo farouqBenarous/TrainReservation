@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/colorPrimary"
         android:padding="5dp"
         >
 
@@ -42,6 +41,7 @@
         android:background="@drawable/backgroundradiuswhite"
         android:hint="Your Location"
         android:inputType="textAutoComplete"
+        android:textColorHint="@color/colorPrimary"
         />
 
   </LinearLayout>
@@ -71,6 +71,7 @@
                 android:background="@drawable/backgroundradiuswhite"
                 android:hint="Destination"
                 android:inputType="textAutoComplete"
+                android:textColorHint="@color/colorPrimary"
                 />
 
 
@@ -86,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Trip  Type :  "
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimary"
                 android:layout_gravity="center"
                 android:textSize="20sp"
                 android:layout_marginStart="10dp"
@@ -99,6 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:background="@drawable/backgroundradiuswhite"
+                android:textColor="@color/colorPrimary"
                 />
 
 
@@ -189,6 +191,8 @@
           android:layout_gravity="center"
           android:gravity="center"
           android:textAlignment="center"
+          android:textColor="@color/colorPrimary"
+          android:textColorHint="@color/colorPrimary"
           />
 
       <at.markushi.ui.CircleButton
@@ -214,7 +218,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="Train Type : "
-          android:textColor="@color/white"
+          android:textColor="@color/colorPrimary"
           android:layout_gravity="center"
           android:textSize="20sp"
           android:layout_marginLeft="10dp"
@@ -227,6 +231,8 @@
           android:layout_height="wrap_content"
           android:layout_margin="16dp"
           android:background="@drawable/backgroundradiuswhite"
+          android:textColor="@color/colorPrimary"
+
           />
 
 

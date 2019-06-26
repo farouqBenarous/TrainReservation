@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TripShowBiggerActivity"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_gravity="center"
+
+    >
+
+    <ImageView
+        android:id="@+id/header_cover_image"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerCrop"
+        />
+
+
+    <TextView
+        android:id="@+id/deparv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dep -> Arv"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" Date "
+        android:layout_gravity="center"
+        android:gravity="center"
+
+        />
+
+    <TextView
+        android:id="@+id/nbplaces"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nbplaces"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/traintype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="traintype"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+
+
+    <TextView
+        android:id="@+id/triptype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Trip type"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/white"
+        android:text="book"
+        android:onClick="book"
+        android:background="@drawable/backgroundradius"
+        />
+
+
+</LinearLayout>
